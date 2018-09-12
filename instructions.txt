@@ -1,0 +1,9 @@
+bowling game kata with Jest and committs to gitHub
+
+need to download the node package, node.js
+XC Admin: Excella
+
+install jest:
+npm install --save-dev jest
+
+ 
