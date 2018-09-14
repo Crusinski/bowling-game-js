@@ -17,21 +17,22 @@ function rollMany(pins, rolls) {
 
 function getScore() {
     let total = 0
+    let roll = 0 
 
-    for (let i = 0; i < totalRolls.length; i+=2) {
-        let frame = 0 
+    for (let frame = 0; frame < 10; frame++) {
         
-        const frameIsStrike = totalRolls[i] === 10
+        const frameIsStrike = totalRolls[roll] === 10
         if (frameIsStrike){
-            frame += totalRolls[i] + totalRolls [i+1] + totalRolls[i+2]
+            total += totalRolls[roll] + totalRolls [roll+1] + totalRolls[roll+2]
+            roll += 1
         }
         else {
-            frame = totalRolls[i] + totalRolls[i+1]
-            const frameIsSpare = frame === 10
+            total += totalRolls[roll] + totalRolls[roll+1]
+            const frameIsSpare = totalRolls[roll] + totalRolls [roll+1] === 10
             if (frameIsSpare)
-                frame += totalRolls[i+2]
+                total += totalRolls[roll+2]
+            roll += 2
         }
-        total += frame
     }
 
     return total
